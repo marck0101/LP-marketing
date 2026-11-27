@@ -6,7 +6,7 @@ Assinatura: "O básico, bem feito e medido."
 
 ## Estrutura
 
-- `dist/`: **gerada** por `npm run build` (não versionada). Contém só o que vai ao ar: `index.html` (montado de `scripts/index.template.html` + `content/whatsapp.json`), `css/`, `js/`, `img/`, `robots.txt`, `sitemap.xml`. Edite os templates (`scripts/index.template.html`, `scripts/privacidade.template.html`, rodapé + banner em `scripts/parciais/rodape.html`), nunca `dist/`. Ao mudar a política, atualize `ATUALIZADA` em `scripts/build.mjs`.
+- `dist/`: **gerada** por `npm run build` (não versionada). Contém só o que vai ao ar: `index.html` (montado de `scripts/index.template.html` + `content/whatsapp.json`), `css/`, `js/`, `img/`, `robots.txt`, `sitemap.xml`, `llms.txt` (resumo para IAs; editar na raiz). Edite os templates (`scripts/index.template.html`, `scripts/privacidade.template.html`, rodapé + banner em `scripts/parciais/rodape.html`), nunca `dist/`. Ao mudar a política, atualize `ATUALIZADA` em `scripts/build.mjs`.
 - Netlify: `command = "npm run build"`, `publish = "dist"` (`netlify.toml`). Testes, scripts e `package.json` não ficam acessíveis pela URL.
 - `scripts/build.mjs`: fonte única de links de WhatsApp (com ref), FAQ (HTML + JSON-LD) e ofertas (JSON-LD).
 - `content/whatsapp.json`: número, prefixo e pedido de cada CTA (espelha `content/whatsapp.json` do catálogo).
