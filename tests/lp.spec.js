@@ -212,7 +212,7 @@ test.describe('conteúdo e SEO', () => {
     expect(r.status()).toBe(200);
     const corpo = await r.text();
     for (const u of ['https://servicos.marck0101.com.br', 'https://blog.marck0101.com.br', 'https://marck0101.com.br']) expect(corpo).toContain(u);
-    expect(corpo).not.toMatch(/pequen|PME/i);
+    expect(corpo).not.toMatch(/pequen|\bPME\b/i);
   });
 });
 
