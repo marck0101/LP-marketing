@@ -219,3 +219,12 @@ test.describe('acessibilidade (axe)', () => {
     });
   }
 });
+
+test('só os arquivos do site são publicados', async ({ request }) => {
+  for (const p of ['/package.json', '/tests/lp.spec.js', '/scripts/build.mjs', '/netlify.toml', '/README.md', '/LICENSE']) {
+    expect((await request.get(p)).status(), p).toBe(404);
+  }
+  for (const p of ['/', '/css/style.css', '/js/app.js', '/js/consent.js', '/img/og.png', '/robots.txt', '/sitemap.xml']) {
+    expect((await request.get(p)).status(), p).toBe(200);
+  }
+});

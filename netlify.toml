@@ -1,6 +1,8 @@
-# Cabecalhos de seguranca e cache. Deploy: Netlify (publica a raiz do repositorio, sem build).
+# Cabecalhos de seguranca e cache. Deploy: Netlify roda o build e publica so dist/
+# (index.html, css, js, img, robots.txt, sitemap.xml). Testes, scripts e package.json nao vao ao ar.
 [build]
-  publish = "."
+  command = "npm run build"
+  publish = "dist"
 
 [[headers]]
   for = "/*"

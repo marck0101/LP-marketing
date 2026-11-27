@@ -6,7 +6,8 @@ Assinatura: "O básico, bem feito e medido."
 
 ## Estrutura
 
-- `index.html`: **gerado** por `npm run build` a partir de `scripts/index.template.html` (não edite à mão; edite o template).
+- `dist/`: **gerada** por `npm run build` (não versionada). Contém só o que vai ao ar: `index.html` (montado de `scripts/index.template.html` + `content/whatsapp.json`), `css/`, `js/`, `img/`, `robots.txt`, `sitemap.xml`. Edite o template, nunca `dist/`.
+- Netlify: `command = "npm run build"`, `publish = "dist"` (`netlify.toml`). Testes, scripts e `package.json` não ficam acessíveis pela URL.
 - `scripts/build.mjs`: fonte única de links de WhatsApp (com ref), FAQ (HTML + JSON-LD) e ofertas (JSON-LD).
 - `content/whatsapp.json`: número, prefixo e pedido de cada CTA (espelha `content/whatsapp.json` do catálogo).
 - `js/consent.js`: Consent Mode v2 (tudo negado) + carga do GTM só após aceite. `js/app.js`: banner, WhatsApp, eventos.
@@ -31,7 +32,7 @@ Não há `<noscript>` do GTM de propósito (carregaria sem consentimento).
 
 ## Trocar o domínio do catálogo
 
-Hoje `https://catalog0101.vercel.app`; final: `https://catalogo.marck0101.com.br`. Constante `CATALOG_URL` em `js/app.js`
+Hoje `https://catalog0101.vercel.app`; final: `https://servicos.marck0101.com.br` (decidido em 27/11/2026: o subdomínio diz ao Google o que há lá dentro). Constante `CATALOG_URL` em `js/app.js`
 (reaponta os links `data-catalogo` em tempo de execução). Fallback sem JS e JSON-LD/CSP: rode
 `grep -rn catalog0101.vercel.app --exclude-dir=node_modules .` e troque também em `scripts/index.template.html`, depois `npm run build`.
 

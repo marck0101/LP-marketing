@@ -8,4 +8,7 @@
 - WhatsApp corrigido para 5555963370494 (antes 555599923469); botão flutuante e CTAs com ref `lp-*` e `utm_campaign`.
 - Consent Mode v2 + banner Aceitar/Recusar; GTM só após aceite; eventos unificados (removido `click_origin`).
 - SEO: canonical, OG + imagem, JSON-LD (ProfessionalService com Offers, FAQPage), robots.txt, sitemap.xml.
+- Netlify publica só `dist/` (gerada no build): testes, scripts e `package.json` deixam de ficar acessíveis pela URL.
+- LICENSE do template (Tailwind Toolbox) substituído: nada do template sobrou no código; todos os direitos reservados.
+- Sem e-mail de contato na página por enquanto (contato só por WhatsApp).
 - `netlify.toml` com HSTS, CSP, Permissions-Policy, cache. Testes Playwright + axe + html-validate. `hero.png` removido.

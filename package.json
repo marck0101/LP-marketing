@@ -2,12 +2,12 @@
   "name": "lp-marketing",
   "version": "2.0.0",
   "private": true,
-  "description": "Landing page de tráfego pago (lp.marck0101.com.br). Estática, sem build de produção.",
+  "description": "Landing page de tráfego pago (lp.marck0101.com.br). Estática; npm run build gera dist/, a única pasta publicada.",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "serve": "npx --yes serve -l 4173 .",
-    "validate": "html-validate index.html",
-    "test": "node scripts/build.mjs && html-validate index.html && playwright test",
+    "serve": "npx --yes serve -l 4173 dist",
+    "validate": "html-validate dist/index.html",
+    "test": "node scripts/build.mjs && html-validate dist/index.html && playwright test",
     "test:install": "playwright install chromium"
   },
   "devDependencies": {

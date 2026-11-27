@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  // URL do catalogo: trocar aqui quando o dominio final (catalogo.marck0101.com.br) estiver no ar.
+  // URL do catalogo: trocar aqui quando o dominio final (servicos.marck0101.com.br) estiver no ar.
   // Os links com data-catalogo no HTML tem o mesmo valor como fallback sem JS (ver README).
   var CATALOG_URL = 'https://catalog0101.vercel.app';
   var PAGE_TYPE = 'lp_trafego';

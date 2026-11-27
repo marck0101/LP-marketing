@@ -1,6 +1,7 @@
-// Gera index.html a partir de scripts/index.template.html + content/whatsapp.json.
+// Gera dist/ (o que a Netlify publica): index.html a partir de scripts/index.template.html +
+// content/whatsapp.json, mais css/, js/, img/, robots.txt e sitemap.xml. Nada além disso vai ao ar.
 // Fonte unica de: links de WhatsApp (com ref), FAQ (HTML + JSON-LD) e ofertas (JSON-LD).
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, rmSync, mkdirSync, cpSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -73,5 +74,11 @@ html = html
   .replace('{{FAQ_HTML}}', faqHtml)
   .replace('{{LD_SERVICO}}', JSON.stringify(ldServico, null, 2).replace(/</g, '\u003c'))
   .replace('{{LD_FAQ}}', JSON.stringify(ldFaq, null, 2).replace(/</g, '\u003c'));
-writeFileSync(join(raiz, 'index.html'), html);
-console.log('index.html gerado');
+const dist = join(raiz, 'dist');
+rmSync(dist, { recursive: true, force: true });
+mkdirSync(dist);
+writeFileSync(join(dist, 'index.html'), html);
+for (const item of ['css', 'js', 'img', 'robots.txt', 'sitemap.xml']) {
+  cpSync(join(raiz, item), join(dist, item), { recursive: true });
+}
+console.log('dist/ gerado');
