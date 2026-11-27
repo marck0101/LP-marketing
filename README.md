@@ -32,7 +32,7 @@ Não há `<noscript>` do GTM de propósito (carregaria sem consentimento).
 
 ## Trocar o domínio do catálogo
 
-Hoje `https://catalog0101.vercel.app`; final: `https://servicos.marck0101.com.br` (decidido em 27/11/2026: o subdomínio diz ao Google o que há lá dentro). Constante `CATALOG_URL` em `js/app.js`
+Desde 27/11/2026: `https://servicos.marck0101.com.br` (o subdomínio diz ao Google o que há lá dentro; `catalog0101.vercel.app` redireciona para ele). Constante `CATALOG_URL` em `js/app.js`
 (reaponta os links `data-catalogo` em tempo de execução). Fallback sem JS e JSON-LD/CSP: rode
 `grep -rn catalog0101.vercel.app --exclude-dir=node_modules .` e troque também em `scripts/index.template.html`, depois `npm run build`.
 
