@@ -1,0 +1,19 @@
+{
+  "name": "lp-marketing",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Landing page de tráfego pago (lp.marck0101.com.br). Estática; npm run build gera dist/, a única pasta publicada.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "serve": "npx --yes serve -l 4173 dist",
+    "validate": "html-validate dist/index.html dist/privacidade.html",
+    "test": "node scripts/build.mjs && html-validate dist/index.html dist/privacidade.html && playwright test",
+    "test:install": "playwright install chromium"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.55.0",
+    "html-validate": "^9.0.0",
+    "serve": "^14.2.0"
+  }
+}

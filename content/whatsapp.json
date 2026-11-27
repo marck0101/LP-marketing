@@ -1,0 +1,15 @@
+{
+  "numero": "5555963370494",
+  "exibicao": "(55) 96337-0494",
+  "prefixo": "Olá! Vim pela página de tráfego pago",
+  "itens": {
+    "flutuante": { "ref": "lp-flutuante", "pedido": "Quero conversar sobre gestão de tráfego pago." },
+    "hero": { "ref": "lp-hero", "pedido": "Quero entender como a gestão de tráfego pago medida funcionaria no meu negócio." },
+    "pre-diagnostico": { "ref": "lp-pre-diagnostico", "pedido": "Quero o pré-diagnóstico gratuito da minha presença no Google, dos anúncios e do site." },
+    "diagnostico": { "ref": "lp-diagnostico", "pedido": "Quero saber mais sobre o diagnóstico de tráfego e medição." },
+    "implantacao": { "ref": "lp-implantacao", "pedido": "Quero saber mais sobre a implantação (tagueamento, campanhas e painel)." },
+    "gestao": { "ref": "lp-gestao", "pedido": "Quero saber mais sobre a gestão mensal de tráfego." },
+    "cta-final": { "ref": "lp-cta-final", "pedido": "Quero conversar sobre tráfego pago para o meu negócio." },
+    "rodape": { "ref": "lp-rodape", "pedido": "Quero conversar sobre tráfego pago." }
+  }
+}
