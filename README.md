@@ -56,6 +56,6 @@ Eventos: `whatsapp_click {link_location, page_type:'lp_trafego', ref}`, `pre_dia
 
 ## Preços
 
-Fonte: plano de receita (escada de ofertas). Pré-diagnóstico R$ 0; Diagnóstico R$ 900 a R$ 1.500; Implantação a partir de R$ 3.000;
-Gestão mensal a partir de R$ 2.500/mês (verba de anúncios não inclusa). Para mudar: `scripts/index.template.html` (texto + `data-min`/`data-max`)
+Fonte: plano de receita (escada de ofertas). Pré-diagnóstico R$ 0; Diagnóstico R$ 1.250 a R$ 2.000; Implantação a partir de R$ 3.500;
+Gestão mensal a partir de R$ 4.200/mês (atualizado em 27/11/2026; verba de anúncios não inclusa). Para mudar: `scripts/index.template.html` (texto + `data-min`/`data-max`)
 e `scripts/build.mjs` (JSON-LD); o teste confere os dois lados.

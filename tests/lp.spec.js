@@ -172,10 +172,10 @@ test.describe('conteúdo e SEO', () => {
     });
     const fmt = (n) => n.toLocaleString('pt-BR');
     expect(dom[0].text).toContain('R$ 0');
-    expect(dom[1].text).toContain(`R$ ${fmt(900)}`);
-    expect(dom[1].text).toContain(`R$ ${fmt(1500)}`);
-    expect(dom[2].text).toContain(`R$ ${fmt(3000)}`);
-    expect(dom[3].text).toContain(`R$ ${fmt(2500)}`);
+    expect(dom[1].text).toContain(`R$ ${fmt(1250)}`);
+    expect(dom[1].text).toContain(`R$ ${fmt(2000)}`);
+    expect(dom[2].text).toContain(`R$ ${fmt(3500)}`);
+    expect(dom[3].text).toContain(`R$ ${fmt(4200)}`);
     const qs = await page.locator('.faq summary').allTextContents();
     expect(qs).toEqual(faq.mainEntity.map((q) => q.name));
     await expect(page.locator('.nota-verba')).toContainText('não está inclusa');

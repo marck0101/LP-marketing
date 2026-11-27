@@ -53,15 +53,15 @@ const ldServico = {
   address: { '@type': 'PostalAddress', addressLocality: 'Santa Rosa', addressRegion: 'RS', addressCountry: 'BR' },
   areaServed: { '@type': 'Country', name: 'Brasil' },
   founder: { '@type': 'Person', name: 'Marcos Henrique Corrêa', image: SITE + 'img/marcos-henrique-correa.webp', url: 'https://blog.marck0101.com.br' },
-  priceRange: 'R$ 0 a partir de R$ 3.000',
+  priceRange: 'R$ 0 a partir de R$ 3.500',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Escada de ofertas de tráfego pago',
     itemListElement: [
       oferta('Pré-diagnóstico gratuito', 'Análise rápida da presença no Google, anúncios e site, entregue em PDF.', { '@type': 'PriceSpecification', minPrice: 0, maxPrice: 0 }),
-      oferta('Diagnóstico de tráfego e medição', 'Auditoria de contas, tagueamento, funil e plano de ação.', { '@type': 'PriceSpecification', minPrice: 900, maxPrice: 1500 }),
-      oferta('Implantação', 'Tagueamento GA4/GTM/Pixel com consentimento, estrutura de campanhas, landing page e ajustes, painel.', { '@type': 'PriceSpecification', minPrice: 3000 }),
-      oferta('Gestão mensal de tráfego', 'Meta, Google e LinkedIn; otimização contínua, relatório mensal e reunião. Verba de anúncios paga direto às plataformas e não inclusa.', { '@type': 'UnitPriceSpecification', minPrice: 2500, unitCode: 'MON', unitText: 'mês' })
+      oferta('Diagnóstico de tráfego e medição', 'Auditoria de contas, tagueamento, funil e plano de ação.', { '@type': 'PriceSpecification', minPrice: 1250, maxPrice: 2000 }),
+      oferta('Implantação', 'Tagueamento GA4/GTM/Pixel com consentimento, estrutura de campanhas, landing page e ajustes, painel.', { '@type': 'PriceSpecification', minPrice: 3500 }),
+      oferta('Gestão mensal de tráfego', 'Meta, Google e LinkedIn; otimização contínua, relatório mensal e reunião. Verba de anúncios paga direto às plataformas e não inclusa.', { '@type': 'UnitPriceSpecification', minPrice: 4200, unitCode: 'MON', unitText: 'mês' })
     ]
   }
 };
