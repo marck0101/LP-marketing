@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-27 · llms.txt e Person
+
+- `/llms.txt` (resumo da LP para assistentes de IA), copiado ao `dist/` pelo build e servido como text/plain. CSP intacta.
+- JSON-LD: `founder` (Person) com `@id` do portfólio, `url` e `sameAs` padrão (LinkedIn, GitHub, blog, serviços).
+
 ## 2026-11-27 · v2.0.0 · LP de tráfego pago (marca marck0101)
 
 - Reescrita completa: visual editorial da marca (papel/tinta/tijolo, Fraunces + IBM Plex), sem Tailwind, sem gradientes.

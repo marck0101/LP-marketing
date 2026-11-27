@@ -1,6 +1,6 @@
 // Gera dist/ (o que a Netlify publica): index.html e privacidade.html a partir dos templates em scripts/
 // (rodapé + banner de cookies compartilhados em scripts/parciais/rodape.html) +
-// content/whatsapp.json, mais css/, js/, img/, robots.txt e sitemap.xml. Nada além disso vai ao ar.
+// content/whatsapp.json, mais css/, js/, img/, robots.txt, sitemap.xml e llms.txt. Nada além disso vai ao ar.
 // Fonte unica de: links de WhatsApp (com ref), FAQ (HTML + JSON-LD) e ofertas (JSON-LD).
 import { readFileSync, writeFileSync, rmSync, mkdirSync, cpSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -52,7 +52,19 @@ const ldServico = {
   slogan: 'O básico, bem feito e medido.',
   address: { '@type': 'PostalAddress', addressLocality: 'Santa Rosa', addressRegion: 'RS', addressCountry: 'BR' },
   areaServed: { '@type': 'Country', name: 'Brasil' },
-  founder: { '@type': 'Person', name: 'Marcos Henrique Corrêa', image: SITE + 'img/marcos-henrique-correa.webp', url: 'https://blog.marck0101.com.br' },
+  founder: {
+    '@type': 'Person',
+    '@id': 'https://marck0101.com.br/#person',
+    name: 'Marcos Henrique Corrêa',
+    image: SITE + 'img/marcos-henrique-correa.webp',
+    url: 'https://marck0101.com.br',
+    sameAs: [
+      'https://www.linkedin.com/in/marcos-henrique-corr%C3%AAa-618392209/',
+      'https://github.com/marck0101',
+      'https://blog.marck0101.com.br',
+      'https://servicos.marck0101.com.br'
+    ]
+  },
   priceRange: 'R$ 0 a partir de R$ 3.500',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -92,7 +104,7 @@ for (const f of ['index.html', 'privacidade.html']) {
   const resto = readFileSync(join(dist, f), 'utf8').match(/\{\{[^}]+\}\}/);
   if (resto) throw new Error(`marcador sem valor em ${f}: ${resto[0]}`);
 }
-for (const item of ['css', 'js', 'img', 'robots.txt', 'sitemap.xml']) {
+for (const item of ['css', 'js', 'img', 'robots.txt', 'sitemap.xml', 'llms.txt']) {
   cpSync(join(raiz, item), join(dist, item), { recursive: true });
 }
 console.log('dist/ gerado');

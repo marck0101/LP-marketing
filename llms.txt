@@ -1,0 +1,25 @@
+# marck0101 · Gestão de tráfego pago medida
+
+> Landing page de Marcos Henrique Corrêa (marck0101), de Santa Rosa/RS, com atendimento online em todo o Brasil. Oferece gestão de tráfego pago (Meta, Google e LinkedIn) e mensuração (tagueamento com consentimento, relatório mensal) para negócios locais. Assinatura: "O básico, bem feito e medido."
+
+## Quem
+
+- Marcos Henrique Corrêa, também conhecido como marck0101. Atende pessoalmente, do pré-diagnóstico ao relatório.
+- Local: Santa Rosa, Rio Grande do Sul, Brasil. Atendimento online.
+- Público: negócios locais que investem (ou querem investir) em anúncios e precisam enxergar o que volta.
+
+## O que oferece (escada de ofertas)
+
+- Pré-diagnóstico gratuito (R$ 0): análise rápida da presença no Google, dos anúncios e do site, entregue em PDF, sem obrigação de contratar.
+- Diagnóstico de tráfego e medição (R$ 1.250 a R$ 2.000): auditoria de contas, tagueamento, funil e plano de ação.
+- Implantação (a partir de R$ 3.500): tagueamento GA4/GTM/Pixel com consentimento, estrutura de campanhas, landing page e painel.
+- Gestão mensal (a partir de R$ 4.200 por mês): Meta, Google e LinkedIn, otimização contínua, relatório mensal e reunião. A verba de anúncios é paga direto às plataformas e não está inclusa.
+
+## Links
+
+- Página (esta): https://lp.marck0101.com.br/
+- Pré-diagnóstico gratuito: https://lp.marck0101.com.br/#oferta
+- Catálogo de serviços: https://servicos.marck0101.com.br
+- Blog: https://blog.marck0101.com.br
+- Portfólio: https://marck0101.com.br
+- Política de privacidade: https://lp.marck0101.com.br/privacidade

@@ -206,6 +206,14 @@ test.describe('conteúdo e SEO', () => {
     const s = await request.get('/sitemap.xml');
     expect(await s.text()).toContain('<loc>https://lp.marck0101.com.br/</loc>');
   });
+
+  test('llms.txt é text/plain e aponta catálogo, blog e portfólio', async ({ request }) => {
+    const r = await request.get('/llms.txt');
+    expect(r.status()).toBe(200);
+    const corpo = await r.text();
+    for (const u of ['https://servicos.marck0101.com.br', 'https://blog.marck0101.com.br', 'https://marck0101.com.br']) expect(corpo).toContain(u);
+    expect(corpo).not.toMatch(/pequen|\bPME\b/i);
+  });
 });
 
 test.describe('acessibilidade (axe)', () => {
