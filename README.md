@@ -1,12 +1,12 @@
 # LP tráfego pago · lp.marck0101.com.br
 
 Landing page de destino das campanhas pagas (Meta, Google, LinkedIn) de **Gestão de tráfego pago medida**,
-para pequenos negócios locais. Estática (HTML + CSS + JS puro), publicada pelo Netlify a partir da `main`.
+para negócios locais. Estática (HTML + CSS + JS puro), publicada pelo Netlify a partir da `main`.
 Assinatura: "O básico, bem feito e medido."
 
 ## Estrutura
 
-- `dist/`: **gerada** por `npm run build` (não versionada). Contém só o que vai ao ar: `index.html` (montado de `scripts/index.template.html` + `content/whatsapp.json`), `css/`, `js/`, `img/`, `robots.txt`, `sitemap.xml`. Edite o template, nunca `dist/`.
+- `dist/`: **gerada** por `npm run build` (não versionada). Contém só o que vai ao ar: `index.html` (montado de `scripts/index.template.html` + `content/whatsapp.json`), `css/`, `js/`, `img/`, `robots.txt`, `sitemap.xml`. Edite os templates (`scripts/index.template.html`, `scripts/privacidade.template.html`, rodapé + banner em `scripts/parciais/rodape.html`), nunca `dist/`. Ao mudar a política, atualize `ATUALIZADA` em `scripts/build.mjs`.
 - Netlify: `command = "npm run build"`, `publish = "dist"` (`netlify.toml`). Testes, scripts e `package.json` não ficam acessíveis pela URL.
 - `scripts/build.mjs`: fonte única de links de WhatsApp (com ref), FAQ (HTML + JSON-LD) e ofertas (JSON-LD).
 - `content/whatsapp.json`: número, prefixo e pedido de cada CTA (espelha `content/whatsapp.json` do catálogo).

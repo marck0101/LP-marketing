@@ -8,6 +8,8 @@
 - WhatsApp corrigido para 5555963370494 (antes 555599923469); botão flutuante e CTAs com ref `lp-*` e `utm_campaign`.
 - Consent Mode v2 + banner Aceitar/Recusar; GTM só após aceite; eventos unificados (removido `click_origin`).
 - SEO: canonical, OG + imagem, JSON-LD (ProfessionalService com Offers, FAQPage), robots.txt, sitemap.xml.
+- Política de privacidade própria em `/privacidade` (antes apontava para a do catálogo): anúncios e UTM, sem pixel de remarketing, GA4/Clarity só com aceite, WhatsApp, prazos, direitos e ANPD. Rodapé e banner viram parcial compartilhado (`scripts/parciais/rodape.html`).
+- Texto: "negócios locais" sem qualificar o tamanho ("pequeno" pode incomodar o público); teste garante.
 - Netlify publica só `dist/` (gerada no build): testes, scripts e `package.json` deixam de ficar acessíveis pela URL.
 - LICENSE do template (Tailwind Toolbox) substituído: nada do template sobrou no código; todos os direitos reservados.
 - Sem e-mail de contato na página por enquanto (contato só por WhatsApp).

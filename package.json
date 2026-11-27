@@ -6,8 +6,8 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "serve": "npx --yes serve -l 4173 dist",
-    "validate": "html-validate dist/index.html",
-    "test": "node scripts/build.mjs && html-validate dist/index.html && playwright test",
+    "validate": "html-validate dist/index.html dist/privacidade.html",
+    "test": "node scripts/build.mjs && html-validate dist/index.html dist/privacidade.html && playwright test",
     "test:install": "playwright install chromium"
   },
   "devDependencies": {

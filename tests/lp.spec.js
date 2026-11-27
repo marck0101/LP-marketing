@@ -224,7 +224,40 @@ test('só os arquivos do site são publicados', async ({ request }) => {
   for (const p of ['/package.json', '/tests/lp.spec.js', '/scripts/build.mjs', '/netlify.toml', '/README.md', '/LICENSE']) {
     expect((await request.get(p)).status(), p).toBe(404);
   }
-  for (const p of ['/', '/css/style.css', '/js/app.js', '/js/consent.js', '/img/og.png', '/robots.txt', '/sitemap.xml']) {
+  for (const p of ['/', '/privacidade', '/css/style.css', '/js/app.js', '/js/consent.js', '/img/og.png', '/robots.txt', '/sitemap.xml']) {
     expect((await request.get(p)).status(), p).toBe(200);
+  }
+});
+
+test.describe('política de privacidade própria', () => {
+  test('links do rodapé e do banner apontam para /privacidade da LP', async ({ page }) => {
+    await prepare(page);
+    await page.goto('/');
+    for (const sel of ['.rodape a:has-text("Política de privacidade")', '#cookies a:has-text("política de privacidade")']) {
+      expect(await page.locator(sel).getAttribute('href')).toBe('/privacidade');
+    }
+    expect(await page.content()).not.toContain('vercel.app/privacidade');
+  });
+
+  test('página carrega com banner, sem rastreio antes do aceite, h1 único e sem violações axe', async ({ page }) => {
+    const { requests, errors } = await prepare(page);
+    await page.goto('/privacidade');
+    await expect(page.locator('h1')).toHaveText('Política de privacidade');
+    await expect(page.locator('h1')).toHaveCount(1);
+    await expect(page.locator('#cookies')).toBeVisible();
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://lp.marck0101.com.br/privacidade');
+    await expect(page.locator('main')).toContainText('não usa pixel de remarketing');
+    await page.waitForTimeout(400);
+    expect(trackerRequests(requests)).toEqual([]);
+    const r = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+    expect(r.violations.map((v) => v.id)).toEqual([]);
+    expect(errors).toEqual([]);
+  });
+});
+
+test('não qualifica o negócio do público por tamanho', async ({ page }) => {
+  for (const url of ['/', '/privacidade']) {
+    await page.goto(url);
+    expect(await page.content(), url).not.toMatch(/pequen[oa]s?/i);
   }
 });

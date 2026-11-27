@@ -1,4 +1,5 @@
-// Gera dist/ (o que a Netlify publica): index.html a partir de scripts/index.template.html +
+// Gera dist/ (o que a Netlify publica): index.html e privacidade.html a partir dos templates em scripts/
+// (rodapé + banner de cookies compartilhados em scripts/parciais/rodape.html) +
 // content/whatsapp.json, mais css/, js/, img/, robots.txt e sitemap.xml. Nada além disso vai ao ar.
 // Fonte unica de: links de WhatsApp (com ref), FAQ (HTML + JSON-LD) e ofertas (JSON-LD).
 import { readFileSync, writeFileSync, rmSync, mkdirSync, cpSync } from 'node:fs';
@@ -44,7 +45,7 @@ const ldServico = {
   '@type': 'ProfessionalService',
   '@id': SITE + '#servico',
   name: 'marck0101 · Gestão de tráfego pago',
-  description: 'Gestão de tráfego pago medida para pequenos negócios locais (Meta, Google e LinkedIn), com tagueamento e relatório mensal.',
+  description: 'Gestão de tráfego pago medida para negócios locais (Meta, Google e LinkedIn), com tagueamento e relatório mensal.',
   url: SITE,
   image: SITE + 'img/og.png',
   telephone: '+' + wa.numero,
@@ -65,19 +66,32 @@ const ldServico = {
   }
 };
 
-let html = readFileSync(join(raiz, 'scripts/index.template.html'), 'utf8');
-html = html.replace(/\{\{wa:([\w-]+)\}\}/g, (_, k) => {
-  if (!wa.itens[k]) throw new Error('ref desconhecido: ' + k);
-  return link(k).replace(/&/g, '&amp;');
-});
-html = html
-  .replace('{{FAQ_HTML}}', faqHtml)
-  .replace('{{LD_SERVICO}}', JSON.stringify(ldServico, null, 2).replace(/</g, '\u003c'))
-  .replace('{{LD_FAQ}}', JSON.stringify(ldFaq, null, 2).replace(/</g, '\u003c'));
+const ATUALIZADA = '27/11/2026'; // data da política de privacidade (mudar junto com o texto)
+const rodape = readFileSync(join(raiz, 'scripts/parciais/rodape.html'), 'utf8');
+
+function montar(arquivo) {
+  let html = readFileSync(join(raiz, 'scripts', arquivo), 'utf8').replace('{{RODAPE}}', rodape);
+  html = html.replace(/\{\{wa:([\w-]+)\}\}/g, (_, k) => {
+    if (!wa.itens[k]) throw new Error('ref desconhecido: ' + k);
+    return link(k).replace(/&/g, '&amp;');
+  });
+  return html
+    .replace('{{FAQ_HTML}}', faqHtml)
+    .replace('{{LD_SERVICO}}', JSON.stringify(ldServico, null, 2).replace(/</g, '<'))
+    .replace('{{LD_FAQ}}', JSON.stringify(ldFaq, null, 2).replace(/</g, '<'))
+    .replaceAll('{{ATUALIZADA}}', ATUALIZADA)
+    .replaceAll('{{WA_NUMERO}}', wa.numero);
+}
+
 const dist = join(raiz, 'dist');
 rmSync(dist, { recursive: true, force: true });
 mkdirSync(dist);
-writeFileSync(join(dist, 'index.html'), html);
+writeFileSync(join(dist, 'index.html'), montar('index.template.html'));
+writeFileSync(join(dist, 'privacidade.html'), montar('privacidade.template.html'));
+for (const f of ['index.html', 'privacidade.html']) {
+  const resto = readFileSync(join(dist, f), 'utf8').match(/\{\{[^}]+\}\}/);
+  if (resto) throw new Error(`marcador sem valor em ${f}: ${resto[0]}`);
+}
 for (const item of ['css', 'js', 'img', 'robots.txt', 'sitemap.xml']) {
   cpSync(join(raiz, item), join(dist, item), { recursive: true });
 }

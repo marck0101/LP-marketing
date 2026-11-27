@@ -163,3 +163,13 @@ body[data-aviso-cookies] .wa-fab { display: none; }
 .cookies .bts { display: flex; gap: .5rem; flex-wrap: wrap; }
 .cookies .btn { flex: 1 1 8rem; }
 @media (min-width: 52rem) { .cookies .in { grid-template-columns: 1fr auto; align-items: center; } .cookies .btn { flex: 0 0 auto; } }
+
+/* Política de privacidade */
+.legal { padding: 3rem 0 2rem; }
+.legal .wrap { max-width: 44rem; }
+.legal h1 { margin-bottom: 1rem; }
+.legal h2 { font-size: clamp(1.3rem, 3vw, 1.6rem); margin: 2.5rem 0 .75rem; padding-top: 1.5rem; border-top: 1px solid var(--linha); }
+.legal p, .legal li { color: var(--tinta-suave); }
+.legal ul { padding-left: 1.25rem; }
+.legal code { font-family: var(--f-dado); font-size: .9em; background: var(--papel-escuro); padding: .05em .3em; border-radius: 3px; }
+.legal a { color: var(--tinta); text-underline-offset: 4px; }
